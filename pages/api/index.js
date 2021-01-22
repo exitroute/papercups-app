@@ -5,12 +5,12 @@ const data = [
     url: "https://picsum.photos/300/200",
   },
   {
-    name: "Paper Cup",
+    name: "Lost Cup",
     price: "25.00",
     url: "https://picsum.photos/300/200",
   },
   {
-    name: "Paper Cup",
+    name: "Found Cup",
     price: "25.00",
     url: "https://picsum.photos/300/200",
   },
