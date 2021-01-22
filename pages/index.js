@@ -1,14 +1,12 @@
-import React, { Component } from "react";
 import Layout from "../components/Layout";
-
-// TODO Implement Cups Page with GetStaticProps
+import Card from "../components/Card";
 
 function Index({ data }) {
   return (
     <Layout>
       <h1>Paper Cups</h1>
-      {data.map((item) => (
-        <img src={`${item.url}`} alt="Picture of a paper cup" />
+      {data.map((item, index) => (
+        <Card name={item.name} url={item.url} key={index} />
       ))}
     </Layout>
   );
