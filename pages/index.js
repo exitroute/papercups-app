@@ -16,9 +16,8 @@ export async function getStaticProps() {
   try {
     const res = await fetch(process.env.API_URL);
     const data = await res.json();
-  } catch (err) {
-    console.log(err);
-    console.error(`There was an error with status code ${res.status}`);
+  } catch (error) {
+    throw new Error(error.message);
   } finally {
     return {
       props: {
