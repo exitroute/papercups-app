@@ -13,7 +13,7 @@ module.exports = (phase, { defaultConfig }) => {
   return {
     /* config options for all phases except development here */
     env: {
-      API_URL: process.env.VERCEL_URL,
+      API_URL: "https://papercups-app.vercel.app/api",
     },
   };
 };
