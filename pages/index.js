@@ -16,14 +16,13 @@ export async function getStaticProps() {
   try {
     const res = await fetch(process.env.API_URL);
     const data = await res.json();
-  } catch (error) {
-    throw new Error(error.message);
-  } finally {
     return {
       props: {
-        data,
+        data: data,
       },
     };
+  } catch (error) {
+    throw new Error(error.message);
   }
 }
 
