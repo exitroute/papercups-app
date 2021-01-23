@@ -39,5 +39,7 @@ const data = {
 };
 
 export default function handler(req, res) {
-  res.status(200).json(data);
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(data));
 }
