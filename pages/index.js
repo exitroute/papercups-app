@@ -13,14 +13,19 @@ function Index({ data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.API_URL);
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
+  try {
+    const res = await fetch(process.env.API_URL);
+    const data = await res.json();
+  } catch (err) {
+    console.log(err);
+    console.error(`There was an error with status code ${res.status}`);
+  } finally {
+    return {
+      props: {
+        data,
+      },
+    };
+  }
 }
 
 export default Index;
