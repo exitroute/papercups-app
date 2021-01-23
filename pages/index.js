@@ -13,7 +13,7 @@ function Index({ data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.DEV_API);
+  const res = await fetch(process.env.API_URL);
   const data = await res.json();
 
   return {
