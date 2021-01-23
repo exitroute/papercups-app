@@ -41,5 +41,5 @@ const data = {
 export default (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(data));
+  res.end(JSON.stringify({ pictures: [{ name: "paper cup" }] }));
 };

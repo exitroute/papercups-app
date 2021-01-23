@@ -5,9 +5,9 @@ function Index({ data }) {
   return (
     <Layout>
       <h1>Paper Cups</h1>
-      {data.map((item, index) => (
+      {/* {data.map((item, index) => (
         <Card name={item.name} url={item.url} key={index} />
-      ))}
+      ))} */}
     </Layout>
   );
 }
@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data: data.pictures,
+      data,
     },
   };
 }
