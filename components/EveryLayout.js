@@ -114,3 +114,16 @@ export const Frame = styled.div`
     object-fit: cover;
   }
 `;
+
+export const Imposter = styled.div`
+  position: ${(props) => (props.fixed ? "fixed" : "absolute")};
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Contents */
+
+  --margin: ${(props) => props.margin};
+  overflow: auto;
+  max-height: calc(100% - (var(--margin) * 2));
+  max-width: calc(100% - (var(--margin) * 2));
+`;
