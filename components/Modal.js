@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Box, Stack, Center, Frame } from "./EveryLayout";
 
 const Container = styled.div`
   background: rgba(0, 0, 0, 0.8);
@@ -26,13 +27,18 @@ const Modal = ({ showModal, itemData }) => {
     <>
       {showModal ? (
         <Container>
-          <p>Modal</p>
           <Imposter>
+            <Box>
+              <Center>
+                <Stack>
                   <p>{itemData.name}</p>
                   <p>{itemData.price}</p>
                   <Frame>
                     <img src={`${itemData.url}`} alt="Picture of a paper cup" />
                   </Frame>
+                </Stack>
+              </Center>
+            </Box>
           </Imposter>
         </Container>
       ) : null}
