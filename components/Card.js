@@ -2,13 +2,28 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Box, Cluster, Stack, Frame } from "./EveryLayout";
 
-const P = styled.p`
-  visibility: ${(props) => (props.inHover ? "visible" : "hidden")};
+const StyledBox = styled(Box)`
+  p,
+  button {
+    visibility: hidden;
+    opacity: 0;
+    transition: 500ms;
+  }
+  &:hover p,
+  &:hover button {
+    visibility: visible;
+    opacity: 1;
+  }
+  img {
+    border: var(--border-thick-light);
+  }
+  &:hover img {
+    border: var(--border-thick);
+    transition: 500ms;
+  }
 `;
 
 export default function Card(item) {
-  const [inHover, setHover] = useState(false);
-
   return (
     <StyledBox>
       <Stack>
@@ -18,6 +33,7 @@ export default function Card(item) {
         <Cluster>
           <Box>
             <p>{`${item.name}`}</p>
+            <button>Find out more</button>
           </Box>
         </Cluster>
       </Stack>
