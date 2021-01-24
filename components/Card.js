@@ -27,6 +27,11 @@ const StyledBox = styled(Box)`
 export default function Card(props) {
   const handleChange = (e) => {
     props.openModal(e.target.value);
+    props.getItemData({
+      name: props.name,
+      price: props.price,
+      url: props.url,
+    });
   };
 
   return (
