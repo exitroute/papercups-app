@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "./Modal";
 import { Box, Cluster, Stack, Frame } from "./EveryLayout";
 
 const StyledBox = styled(Box)`
@@ -24,6 +25,12 @@ const StyledBox = styled(Box)`
 `;
 
 export default function Card(item) {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   return (
     <StyledBox>
       <Stack>
@@ -33,7 +40,8 @@ export default function Card(item) {
         <Cluster>
           <Box>
             <p>{`${item.name}`}</p>
-            <button>Find out more</button>
+            <button onClick={openModal}>Find out more</button>
+            <Modal showModal={showModal} setShowModal={setShowModal} />
           </Box>
         </Cluster>
       </Stack>
