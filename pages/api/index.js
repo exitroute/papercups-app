@@ -1,5 +1,3 @@
-import { sendData } from "next/dist/next-server/server/api-utils";
-
 const data = {
   pictures: [
     {
@@ -44,7 +42,7 @@ export default (req, res) => {
   try {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ name: "paper cup" }));
+    res.end(JSON.stringify(data));
   } catch (err) {
     console.log(err);
     res.send({ error: err.message });
