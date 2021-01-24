@@ -21,14 +21,18 @@ const Imposter = styled.div`
   z-index: 101;
 `;
 
-const Modal = ({ showModal }) => {
+const Modal = ({ showModal, itemData }) => {
   return (
     <>
       {showModal ? (
         <Container>
           <p>Modal</p>
           <Imposter>
-            <p>Content</p>
+                  <p>{itemData.name}</p>
+                  <p>{itemData.price}</p>
+                  <Frame>
+                    <img src={`${itemData.url}`} alt="Picture of a paper cup" />
+                  </Frame>
           </Imposter>
         </Container>
       ) : null}
