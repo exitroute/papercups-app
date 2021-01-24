@@ -8,8 +8,6 @@ function Index({ data }) {
 
   const openModal = (data) => {
     setShowModal((prev) => !prev);
-    console.log("from card", data);
-    console.log(showModal);
   };
 
   return (
