@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
   --s3: calc(var(--s2) * var(--ratio));
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
+  --border-thick: 5px solid var(--color-dark);
+  --border-thick-light: 5px solid var(--color-light);
+  --color-light: #fff;
+  --color-dark: #000;
 }  
    body {
     margin: 0;
