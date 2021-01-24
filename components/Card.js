@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
 import { Box, Cluster, Stack, Frame } from "./EveryLayout";
@@ -24,27 +24,28 @@ const StyledBox = styled(Box)`
   }
 `;
 
-export default function Card(item) {
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal((prev) => !prev);
+export default function Card(props) {
+  const handleChange = (e) => {
+    props.openModal(e.target.value);
   };
 
   return (
-    <StyledBox>
-      <Stack>
-        <Frame>
-          <img src={`${item.url}`} alt="Picture of a paper cup" />
-        </Frame>
-        <Cluster>
-          <Box>
-            <p>{`${item.name}`}</p>
-            <button onClick={openModal}>Find out more</button>
-            <Modal showModal={showModal} setShowModal={setShowModal} />
-          </Box>
-        </Cluster>
-      </Stack>
-    </StyledBox>
+    <>
+      <StyledBox>
+        <Stack>
+          <Frame>
+            <img src={`${props.url}`} alt="Picture of a paper cup" />
+          </Frame>
+          <Cluster>
+            <Box>
+              <p>{`${props.name}`}</p>
+              <button value="false" onClick={handleChange}>
+                Find out more
+              </button>
+            </Box>
+          </Cluster>
+        </Stack>
+      </StyledBox>
+    </>
   );
 }
