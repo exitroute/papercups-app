@@ -9,15 +9,19 @@ export default function PaymentDetails(props) {
     props.lastStep();
   };
 
+  const handlePaymentChange = (e) => {
+    props.getPaymentDetails(e.target.value);
+  };
+
   return (
     <div>
       <h1>Payment</h1>
       <label htmlFor="Name">Credit Card</label>
       <input
-        className="form-control"
         type="text"
         id="cc"
         placeholder="Enter Credit Card Number"
+        onChange={handlePaymentChange}
       />
       <button onClick={next}>next</button>
       <button>cancel</button>
