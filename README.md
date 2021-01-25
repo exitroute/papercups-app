@@ -13,6 +13,7 @@ Make MVP submission for Monday
 - [ ] Deploy
   - Deploy configured but fails on Vercel. Support request sent.
 - [x] Add overlay for Card with onclick that shows price reveals a buy button
+  - Combined with modal and buy wizard.
 - [ ] Add modal with buy wizard
   - Implement Monday
 - [x] Fix layout
