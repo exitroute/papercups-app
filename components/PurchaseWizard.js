@@ -24,7 +24,7 @@ export default function PurchaseWizard(props) {
    * Functions for:
    *  [x] next
    *  [x] back
-   *  cancel
+   *  [x] cancel
    *  handleChange
    *  submit
    */
@@ -54,15 +54,6 @@ export default function PurchaseWizard(props) {
   const submit = (data) => {
     //  send data to server
   };
-
-  /*
-   * use switch to return components
-   *  case 1 user details
-   *  case 2 payment details
-   *  case 3 review and submit
-   *  case 4 purchase success
-   *
-   */
 
   switch (step) {
     case 1:
