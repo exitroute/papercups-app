@@ -7,7 +7,7 @@ function Index({ data }) {
   const [showModal, setShowModal] = useState(false);
   const [itemData, setItemData] = useState();
 
-  const openModal = (data) => {
+  const openModal = () => {
     setShowModal((prev) => !prev);
   };
 
