@@ -12,7 +12,6 @@ function Index({ data }) {
   };
 
   const getItemData = (data) => {
-    console.log(data);
     setItemData(data);
   };
 
