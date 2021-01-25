@@ -23,9 +23,9 @@ export default function ReviewPurchase(props) {
       </Frame>
       <Cluster>
         <Box>
-          <button onClick={next}>next</button>
-          <button>cancel</button>
           <button onClick={back}>back</button>
+          <button>cancel</button>
+          <button onClick={next}>next</button>
         </Box>
       </Cluster>
     </>
