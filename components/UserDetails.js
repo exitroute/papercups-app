@@ -9,12 +9,12 @@ export default function UserDetails() {
         type="text"
         id="name"
         placeholder="Enter Name"
-        value=""
       />
       <label htmlFor="Email"></label>
       <input type="text" />
-      <button>Cancel</button>
-      <button>Next</button>
+      <button>back</button>
+      <button>cancel</button>
+      <button>next</button>
     </div>
   );
 }
