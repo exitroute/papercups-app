@@ -2,14 +2,19 @@ TODO
 
 Objective:
 
-Make MVP submission for Sunday
+Make MVP submission for Monday
 
 - [ ] Deploy
-- [ ] Add overlay for Card with onclick that shows price reveals a buy button
+  - Deploy configured but fails on Vercel. Support request sent.
+- [x] Add overlay for Card with onclick that shows price reveals a buy button
 - [ ] Add modal with buy wizard
-- [ ] Fix layout and make list of styling improvements
+  - Implement Monday
+- [x] Fix layout
+  - [ ] Make list of styling improvements
 
 MVP +
 
 - [ ] Read and implement TS
+  - Tuesday
 - [ ] How and where would I implement Redux
+  - Tuesday
