@@ -1,4 +1,5 @@
 import React from "react";
+import { Box, Stack, Cluster } from "../EveryLayout";
 
 export default function PaymentDetails(props) {
   const next = (e) => {
@@ -14,18 +15,26 @@ export default function PaymentDetails(props) {
   };
 
   return (
-    <div>
-      <h1>Payment</h1>
-      <label htmlFor="Name">Credit Card</label>
-      <input
-        type="text"
-        id="cc"
-        placeholder="Enter Credit Card Number"
-        onChange={handlePaymentChange}
-      />
-      <button onClick={next}>next</button>
-      <button>cancel</button>
-      <button onClick={back}>back</button>
-    </div>
+    <Box>
+      <Stack>
+        <h1>Payment</h1>
+        <Stack>
+          <label htmlFor="Name">Credit Card Number</label>
+          <input
+            type="text"
+            id="cc"
+            placeholder="Enter Credit Card Number"
+            onChange={handlePaymentChange}
+          />
+        </Stack>
+        <Cluster>
+          <Box>
+            <button onClick={back}>back</button>
+            <button>cancel</button>
+            <button onClick={next}>next</button>
+          </Box>
+        </Cluster>
+      </Stack>
+    </Box>
   );
 }
