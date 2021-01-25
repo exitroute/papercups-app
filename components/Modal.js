@@ -44,7 +44,7 @@ const Modal = (props) => {
       />
     );
   } else {
-    modalContent = <PurchaseWizard />;
+    modalContent = <PurchaseWizard itemData={props.itemData} />;
   }
 
   return (
