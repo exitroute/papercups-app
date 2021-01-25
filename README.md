@@ -1,4 +1,10 @@
-TODO
+# Papercups App
+
+Back in 2015 I spent a year photographing papercups that I found on the streets of Berlin.
+
+This website will present them and allow users to buy a print of the photograph.
+
+## TODO
 
 Objective:
 
