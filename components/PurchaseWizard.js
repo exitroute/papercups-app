@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import UserDetails from "./UserDetails";
+
+import UserDetails from "./steps/UserDetails";
+import PaymentDetails from "./steps/PaymentDetails";
+import ReviewPurchase from "./steps/ReviewPurchase";
+import PurchaseSuccess from "./steps/PurchaseSuccess";
 
 export default function PurchaseWizard() {
   /*
@@ -26,7 +30,7 @@ export default function PurchaseWizard() {
    */
 
   const nextStep = () => {
-    setStep(step++);
+    setStep(step + 1);
   };
 
   const lastStep = () => {
@@ -59,9 +63,9 @@ export default function PurchaseWizard() {
     case 1:
       return <UserDetails nextStep={nextStep} lastStep={lastStep} />;
     case 2:
-      return <PaymentDetails />;
+      return <PaymentDetails nextStep={nextStep} lastStep={lastStep} />;
     case 3:
-      return <ReviewPurchase />;
+      return <ReviewPurchase nextStep={nextStep} lastStep={lastStep} />;
     case 4:
       return <PurchaseSuccess />;
   }
