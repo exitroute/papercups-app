@@ -21,7 +21,9 @@ function Index({ data }) {
       <h1>Paper Cups</h1>
       <Modal
         showModal={showModal}
-        setShowModal={setShowModal}
+        openModal={(e) => {
+          openModal(e);
+        }}
         itemData={itemData}
       />
       {data.map((item, index) => (
