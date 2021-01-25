@@ -1,4 +1,5 @@
 import React from "react";
+import { Box, Frame, Cluster } from "../EveryLayout";
 
 export default function ReviewPurchase(props) {
   const next = (e) => {
@@ -10,11 +11,23 @@ export default function ReviewPurchase(props) {
   };
 
   return (
-    <div>
+    <>
       <h1>Review</h1>
-      <button onClick={next}>next</button>
-      <button>cancel</button>
-      <button onClick={back}>back</button>
-    </div>
+      <p>Your order:</p>
+      <p>Name: {props.userDetails.name}</p>
+      <p>Credit Card: {props.paymentDetails.ccNumber}</p>
+      <p>{props.itemData.name}</p>
+      <p>{props.itemData.price}</p>
+      <Frame>
+        <img src={`${props.itemData.url}`} alt="Picture of a paper cup" />
+      </Frame>
+      <Cluster>
+        <Box>
+          <button onClick={next}>next</button>
+          <button>cancel</button>
+          <button onClick={back}>back</button>
+        </Box>
+      </Cluster>
+    </>
   );
 }
