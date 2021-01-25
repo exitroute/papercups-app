@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Box, Stack, Center, Frame } from "./EveryLayout";
+import { Box, Stack, Center, Frame, Cluster } from "./EveryLayout";
 
 const Container = styled.div`
   background: rgba(0, 0, 0, 0.8);
@@ -22,20 +22,35 @@ const Imposter = styled.div`
   z-index: 101;
 `;
 
-const Modal = ({ showModal, itemData }) => {
+const Modal = (props) => {
+  const handleChange = (e) => {
+    props.openModal(e.target.value);
+  };
+
   return (
     <>
-      {showModal ? (
+      {props.showModal ? (
         <Container>
           <Imposter>
             <Box>
               <Center>
                 <Stack>
-                  <p>{itemData.name}</p>
-                  <p>{itemData.price}</p>
+                  <p>{props.itemData.name}</p>
+                  <p>{props.itemData.price}</p>
                   <Frame>
-                    <img src={`${itemData.url}`} alt="Picture of a paper cup" />
+                    <img
+                      src={`${props.itemData.url}`}
+                      alt="Picture of a paper cup"
+                    />
                   </Frame>
+                  <Cluster>
+                    <Box>
+                      <button value="false" onClick={handleChange}>
+                        Close
+                      </button>
+                      <button>Buy</button>
+                    </Box>
+                  </Cluster>
                 </Stack>
               </Center>
             </Box>
