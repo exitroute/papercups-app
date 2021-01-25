@@ -1,4 +1,5 @@
 import React from "react";
+import { Box, Stack, Cluster } from "../EveryLayout";
 
 export default function UserDetails(props) {
   const next = (e) => {
@@ -10,17 +11,26 @@ export default function UserDetails(props) {
   };
 
   return (
-    <div className="form-group">
-      <h1>We need your name and email address</h1>
-      <label htmlFor="name">Name</label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Enter Name"
-        onChange={handleNameInput}
-      />
-      <button>cancel</button>
-      <button onClick={next}>next</button>
-    </div>
+    <Box>
+      <Stack>
+        <h1>We need your name and email address</h1>
+        <Stack>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter Name"
+            onChange={handleNameInput}
+            required
+          />
+        </Stack>
+        <Cluster>
+          <Box>
+            <button>cancel</button>
+            <button onClick={next}>next</button>
+          </Box>
+        </Cluster>
+      </Stack>
+    </Box>
   );
 }
