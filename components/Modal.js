@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout from "./Layout";
 import styled from "styled-components";
 import PictureDetails from "./PictureDetails";
 import PurchaseWizard from "./PurchaseWizard";
@@ -50,7 +51,9 @@ const Modal = (props) => {
     <>
       {props.showModal ? (
         <Container>
-          <Imposter>{modalContent}</Imposter>
+          <Imposter>
+            <Layout>{modalContent}</Layout>
+          </Imposter>
         </Container>
       ) : null}
     </>
