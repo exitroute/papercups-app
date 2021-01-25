@@ -28,31 +28,29 @@ const Modal = (props) => {
 
   const startPurchase = () => {
     setShowPurchaseWizard((prev) => !prev);
-    console.log("start puchase wizard");
   };
 
-  /**
-   *
-   * If showPurchaseWizard is false showModal
-   * else if showPurchaseWizard is true showPW
-   *
-   * */
+  let modalContent;
+
+  if (showPurchaseWizard === false) {
+    modalContent = (
+      <PictureDetails
+        openModal={props.openModal}
+        itemData={props.itemData}
+        startPurchase={(e) => {
+          startPurchase(e);
+        }}
+      />
+    );
+  } else {
+    modalContent = <PurchaseWizard />;
+  }
 
   return (
     <>
       {props.showModal ? (
         <Container>
-          <Imposter>
-            {/* refactor in to component : pictureDetails */}
-            <PictureDetails
-              openModal={props.openModal}
-              itemData={props.itemData}
-              startPurchase={(e) => {
-                startPurchase(e);
-              }}
-            />
-            {/* <PurchaseWizard /> */}
-          </Imposter>
+          <Imposter>{modalContent}</Imposter>
         </Container>
       ) : null}
     </>
