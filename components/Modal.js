@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Box, Stack, Center, Frame, Cluster } from "./EveryLayout";
+import PictureDetails from "./PictureDetails";
+import PurchaseWizard from "./PurchaseWizard";
 
 const Container = styled.div`
   background: rgba(0, 0, 0, 0.8);
@@ -23,37 +24,34 @@ const Imposter = styled.div`
 `;
 
 const Modal = (props) => {
-  const handleChange = (e) => {
-    props.openModal(e.target.value);
+  const [showPurchaseWizard, setShowPurchaseWizard] = useState(false);
+
+  const startPurchase = () => {
+    setShowPurchaseWizard((prev) => !prev);
+    console.log("start puchase wizard");
   };
+
+  /**
+   *
+   * If showPurchaseWizard is false showModal
+   * else if showPurchaseWizard is true showPW
+   *
+   * */
 
   return (
     <>
       {props.showModal ? (
         <Container>
           <Imposter>
-            <Box>
-              <Center>
-                <Stack>
-                  <p>{props.itemData.name}</p>
-                  <p>{props.itemData.price}</p>
-                  <Frame>
-                    <img
-                      src={`${props.itemData.url}`}
-                      alt="Picture of a paper cup"
-                    />
-                  </Frame>
-                  <Cluster>
-                    <Box>
-                      <button value="false" onClick={handleChange}>
-                        Close
-                      </button>
-                      <button>Buy</button>
-                    </Box>
-                  </Cluster>
-                </Stack>
-              </Center>
-            </Box>
+            {/* refactor in to component : pictureDetails */}
+            <PictureDetails
+              openModal={props.openModal}
+              itemData={props.itemData}
+              startPurchase={(e) => {
+                startPurchase(e);
+              }}
+            />
+            {/* <PurchaseWizard /> */}
           </Imposter>
         </Container>
       ) : null}
