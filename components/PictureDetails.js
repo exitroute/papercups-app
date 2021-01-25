@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Center, Frame, Cluster } from "./EveryLayout";
+import { Box, Frame, Cluster } from "./EveryLayout";
 
 export default function PictureDetails(props) {
   const handleChange = (e) => {
