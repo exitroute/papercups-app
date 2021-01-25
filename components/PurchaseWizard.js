@@ -37,8 +37,9 @@ export default function PurchaseWizard() {
     //  close modal and return to cup page
   };
 
-  const handleChange = (e) => {
-    //  do something with e
+  const handleChange = (input) => (e) => {
+    //  do something with
+    [input](e.target.value);
   };
 
   const submit = (data) => {
