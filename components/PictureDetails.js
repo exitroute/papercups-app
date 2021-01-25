@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Frame, Cluster } from "./EveryLayout";
 
 export default function PictureDetails(props) {
-  console.log(props.openModal);
   const handleChange = (e) => {
     props.openModal(e.target.value);
   };
