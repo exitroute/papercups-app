@@ -41,9 +41,8 @@ export default function PurchaseWizard() {
     //  close modal and return to cup page
   };
 
-  const handleChange = (input) => (e) => {
-    //  do something with
-    [input](e.target.value);
+  const getUserDetails = (e) => {
+    setUserDetails({ name: e });
   };
 
   const submit = (data) => {
@@ -61,7 +60,13 @@ export default function PurchaseWizard() {
 
   switch (step) {
     case 1:
-      return <UserDetails nextStep={nextStep} lastStep={lastStep} />;
+      return (
+        <UserDetails
+          nextStep={nextStep}
+          lastStep={lastStep}
+          getUserDetails={(e) => getUserDetails(e)}
+        />
+      );
     case 2:
       return <PaymentDetails nextStep={nextStep} lastStep={lastStep} />;
     case 3:

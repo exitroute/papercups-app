@@ -5,15 +5,19 @@ export default function UserDetails(props) {
     props.nextStep();
   };
 
+  const handleNameInput = (e) => {
+    props.getUserDetails(e.target.value);
+  };
+
   return (
     <div className="form-group">
       <h1>We need your name and email address</h1>
-      <label htmlFor="Name">Name</label>
+      <label htmlFor="name">Name</label>
       <input
-        className="form-control"
         type="text"
         id="name"
         placeholder="Enter Name"
+        onChange={handleNameInput}
       />
       <button>cancel</button>
       <button onClick={next}>next</button>
