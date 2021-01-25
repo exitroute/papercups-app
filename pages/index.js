@@ -1,7 +1,9 @@
+import React, { useState } from "react";
+
+import Nav from "../components/Nav";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import Modal from "../components/Modal";
-import React, { useState } from "react";
 
 function Index({ data }) {
   const [showModal, setShowModal] = useState(false);
@@ -16,29 +18,32 @@ function Index({ data }) {
   };
 
   return (
-    <Layout>
-      <h1>Paper Cups</h1>
-      <Modal
-        showModal={showModal}
-        openModal={(e) => {
-          openModal(e);
-        }}
-        itemData={itemData}
-      />
-      {data.map((item, index) => (
-        <Card
-          name={item.name}
-          price={item.price}
-          url={item.url}
-          key={index}
-          data={showModal}
+    <>
+      <Nav />
+      <Layout>
+        <h1>Paper Cups</h1>
+        <Modal
+          showModal={showModal}
           openModal={(e) => {
             openModal(e);
           }}
-          getItemData={(data) => getItemData(data)}
+          itemData={itemData}
         />
-      ))}
-    </Layout>
+        {data.map((item, index) => (
+          <Card
+            name={item.name}
+            price={item.price}
+            url={item.url}
+            key={index}
+            data={showModal}
+            openModal={(e) => {
+              openModal(e);
+            }}
+            getItemData={(data) => getItemData(data)}
+          />
+        ))}
+      </Layout>
+    </>
   );
 }
 
