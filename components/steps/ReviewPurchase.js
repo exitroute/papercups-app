@@ -10,6 +10,11 @@ export default function ReviewPurchase(props) {
     props.lastStep();
   };
 
+  const close = (e) => {
+    props.openModal(e.target.value);
+    props.clearState();
+  };
+
   return (
     <>
       <h1>Review</h1>
@@ -24,7 +29,9 @@ export default function ReviewPurchase(props) {
       <Cluster>
         <Box>
           <button onClick={back}>back</button>
-          <button>cancel</button>
+          <button value="false" onClick={close}>
+            cancel
+          </button>
           <button onClick={next}>next</button>
         </Box>
       </Cluster>

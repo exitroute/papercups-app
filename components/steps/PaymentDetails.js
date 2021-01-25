@@ -14,6 +14,11 @@ export default function PaymentDetails(props) {
     props.getPaymentDetails(e.target.value);
   };
 
+  const close = (e) => {
+    props.openModal(e.target.value);
+    props.clearState();
+  };
+
   return (
     <Box>
       <Stack>
@@ -30,7 +35,9 @@ export default function PaymentDetails(props) {
         <Cluster>
           <Box>
             <button onClick={back}>back</button>
-            <button>cancel</button>
+            <button value="false" onClick={close}>
+              cancel
+            </button>{" "}
             <button onClick={next}>next</button>
           </Box>
         </Cluster>

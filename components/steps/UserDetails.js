@@ -10,6 +10,11 @@ export default function UserDetails(props) {
     props.getUserDetails(e.target.value);
   };
 
+  const close = (e) => {
+    props.openModal(e.target.value);
+    props.clearState();
+  };
+
   return (
     <Box>
       <Stack>
@@ -26,7 +31,9 @@ export default function UserDetails(props) {
         </Stack>
         <Cluster>
           <Box>
-            <button>cancel</button>
+            <button value="false" onClick={close}>
+              cancel
+            </button>
             <button onClick={next}>next</button>
           </Box>
         </Cluster>

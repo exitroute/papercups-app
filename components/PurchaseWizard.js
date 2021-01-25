@@ -37,16 +37,18 @@ export default function PurchaseWizard(props) {
     setStep(step - 1);
   };
 
-  const cancel = () => {
-    //  close modal and return to cup page
-  };
-
   const getUserDetails = (e) => {
     setUserDetails({ name: e });
   };
 
   const getPaymentDetails = (e) => {
     setPaymentDetails({ ccNumber: e });
+  };
+
+  const clearState = () => {
+    setStep(1);
+    setUserDetails({ name: "" });
+    setPaymentDetails({ ccNumber: "" });
   };
 
   const submit = (data) => {
@@ -68,6 +70,8 @@ export default function PurchaseWizard(props) {
         <UserDetails
           nextStep={nextStep}
           lastStep={lastStep}
+          openModal={props.openModal}
+          clearState={clearState}
           getUserDetails={(e) => getUserDetails(e)}
         />
       );
@@ -76,6 +80,8 @@ export default function PurchaseWizard(props) {
         <PaymentDetails
           nextStep={nextStep}
           lastStep={lastStep}
+          openModal={props.openModal}
+          clearState={clearState}
           getPaymentDetails={(e) => getPaymentDetails(e)}
         />
       );
@@ -84,12 +90,16 @@ export default function PurchaseWizard(props) {
         <ReviewPurchase
           nextStep={nextStep}
           lastStep={lastStep}
+          openModal={props.openModal}
+          clearState={clearState}
           paymentDetails={paymentDetails}
           userDetails={userDetails}
           itemData={props.itemData}
         />
       );
     case 4:
-      return <PurchaseSuccess />;
+      return (
+        <PurchaseSuccess clearState={clearState} openModal={props.openModal} />
+      );
   }
 }
