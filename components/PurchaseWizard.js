@@ -5,7 +5,7 @@ import PaymentDetails from "./steps/PaymentDetails";
 import ReviewPurchase from "./steps/ReviewPurchase";
 import PurchaseSuccess from "./steps/PurchaseSuccess";
 
-export default function PurchaseWizard() {
+export default function PurchaseWizard(props) {
   /*
    * Hooks for:
    *  [x] setStep
@@ -34,7 +34,7 @@ export default function PurchaseWizard() {
   };
 
   const lastStep = () => {
-    setStep(step--);
+    setStep(step - 1);
   };
 
   const cancel = () => {
@@ -43,6 +43,10 @@ export default function PurchaseWizard() {
 
   const getUserDetails = (e) => {
     setUserDetails({ name: e });
+  };
+
+  const getPaymentDetails = (e) => {
+    setPaymentDetails({ ccNumber: e });
   };
 
   const submit = (data) => {
@@ -68,9 +72,23 @@ export default function PurchaseWizard() {
         />
       );
     case 2:
-      return <PaymentDetails nextStep={nextStep} lastStep={lastStep} />;
+      return (
+        <PaymentDetails
+          nextStep={nextStep}
+          lastStep={lastStep}
+          getPaymentDetails={(e) => getPaymentDetails(e)}
+        />
+      );
     case 3:
-      return <ReviewPurchase nextStep={nextStep} lastStep={lastStep} />;
+      return (
+        <ReviewPurchase
+          nextStep={nextStep}
+          lastStep={lastStep}
+          paymentDetails={paymentDetails}
+          userDetails={userDetails}
+          itemData={props.itemData}
+        />
+      );
     case 4:
       return <PurchaseSuccess />;
   }
