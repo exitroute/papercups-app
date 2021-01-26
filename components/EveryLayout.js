@@ -17,8 +17,8 @@ export const Stack = styled.div`
 `;
 
 export const Box = styled.div`
-  --s1: ${(props) => props.space || "1.5rem"};
-  padding: var(--s1);
+  --space: ${(props) => props.space || "1.5rem"};
+  padding: var(--space);
   border: ${(props) => props.borderThin || 0} solid;
   --color-light: #fff;
   --color-dark: #000;
@@ -130,5 +130,6 @@ export const Imposter = styled.div`
 
 export const Grid = styled.div`
   display: grid;
+  grid-gap: ${(props) => props.gap || "1rem"};
   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
 `;
