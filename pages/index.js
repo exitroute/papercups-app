@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import Nav from "../components/Nav";
-import Layout from "../components/Layout";
 import Card from "../components/Card";
 import Modal from "../components/Modal";
 import { Box, Center, Grid } from "../components/EveryLayout";
+import { makePicArray } from "../helpers/makePicArray";
 
 function Index({ data }) {
   const [showModal, setShowModal] = useState(false);
@@ -54,11 +54,24 @@ function Index({ data }) {
 
 export async function getStaticProps() {
   try {
-    const res = await fetch(process.env.API_URL);
+    const secretKey = process.env.UPLOADCARE_SECRET_KEY;
+    const publicKey = process.env.UPLOADCARE_PUBLIC_KEY;
+    const url = process.env.API_URL;
+
+    const res = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Uploadcare.Simple ${publicKey}:${secretKey}`,
+        Accept: "application/vnd.uploadcare-v0.5+json",
+      },
+    });
     const data = await res.json();
+
+    const pictures = makePicArray(data);
+
     return {
       props: {
-        data: data.pictures,
+        data: pictures,
       },
     };
   } catch (error) {
