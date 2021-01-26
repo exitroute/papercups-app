@@ -127,3 +127,8 @@ export const Imposter = styled.div`
   max-height: calc(100% - (var(--margin) * 2));
   max-width: calc(100% - (var(--margin) * 2));
 `;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+`;
