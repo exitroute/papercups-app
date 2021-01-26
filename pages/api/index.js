@@ -1,48 +1,40 @@
-const data = {
-  pictures: [
-    {
-      name: "Paper Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-    {
-      name: "Lost Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-    {
-      name: "Found Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-    {
-      name: "Paper Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-    {
-      name: "Paper Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-    {
-      name: "Paper Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-    {
-      name: "Paper Cup",
-      price: "25.00",
-      url: "https://picsum.photos/300/200",
-    },
-  ],
+const faker = require("faker");
+const data = require("./response.json");
+
+const makePicArray = (data) => {
+  const urls = data.results.map((result) => result.original_file_url);
+
+  const titleCapitalized = (fakerWords) => {
+    const words = fakerWords.split(" ");
+    return words
+      .map((word) => {
+        return word[0].toUpperCase() + word.substring(1);
+      })
+      .join(" ");
+  };
+
+  return urls.map((url) => {
+    const title = faker.random.words(2);
+    return {
+      url: url,
+      name: `${titleCapitalized(title)} Cup`,
+      price: `€${faker.random.number({
+        min: 25,
+        max: 50,
+        precision: 5.0,
+      })}.00`,
+    };
+  });
 };
 
-export default (req, res) => {
+const result = { pictures: makePicArray(data) };
+
+module.exports = async (req, res) => {
   try {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(data));
+    console.log("###", JSON.stringify(result));
+    res.end(JSON.stringify(result));
   } catch (err) {
     console.log(err);
     res.send({ error: err.message });
