@@ -29,7 +29,7 @@ const makePicArray = (data) => {
 
 const result = { pictures: makePicArray(data) };
 
-module.exports = async (req, res) => {
+export default (req, res) => {
   try {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
