@@ -4,6 +4,9 @@ import Modal from "./Modal";
 import { Box, Cluster, Stack, Frame } from "./EveryLayout";
 
 const StyledBox = styled(Box)`
+  p {
+    text-align: center;
+  }
   p,
   button {
     visibility: hidden;
@@ -44,6 +47,7 @@ export default function Card(props) {
           <Cluster>
             <Box>
               <p>{`${props.name}`}</p>
+              <br />
               <button value="false" onClick={handleChange}>
                 Find out more
               </button>
