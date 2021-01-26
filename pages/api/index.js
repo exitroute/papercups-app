@@ -33,7 +33,6 @@ module.exports = async (req, res) => {
   try {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
-    console.log("###", JSON.stringify(result));
     res.end(JSON.stringify(result));
   } catch (err) {
     console.log(err);
