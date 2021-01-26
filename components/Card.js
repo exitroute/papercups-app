@@ -39,21 +39,19 @@ export default function Card(props) {
 
   return (
     <>
-      <StyledBox>
-        <Stack>
-          <Frame>
-            <img src={`${props.url}`} alt="Picture of a paper cup" />
-          </Frame>
-          <Cluster>
-            <Box>
-              <p>{`${props.name}`}</p>
-              <br />
-              <button value="false" onClick={handleChange}>
-                Find out more
-              </button>
-            </Box>
-          </Cluster>
-        </Stack>
+      <StyledBox space={"--s-2"}>
+        <Frame>
+          <img src={`${props.url}`} alt="Picture of a paper cup" />
+        </Frame>
+        <Cluster>
+          <Box>
+            <p>{`${props.name}`}</p>
+            <br />
+            <button value="false" onClick={handleChange}>
+              Find out more
+            </button>
+          </Box>
+        </Cluster>
       </StyledBox>
     </>
   );
