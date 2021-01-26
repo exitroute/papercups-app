@@ -18,10 +18,10 @@ const StyledBox = styled(Box)`
     visibility: visible;
     opacity: 1;
   }
-  img {
+  & > div:first-child {
     border: var(--border-thick-light);
   }
-  &:hover img {
+  & > div:first-child:hover {
     border: var(--border-thick);
     transition: 500ms;
   }
