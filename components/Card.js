@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
-import { Box, Cluster, Stack, Frame } from "./EveryLayout";
+import { Box, Stack, Frame } from "./EveryLayout";
 
 const StyledBox = styled(Box)`
   p {
@@ -12,6 +12,9 @@ const StyledBox = styled(Box)`
     visibility: hidden;
     opacity: 0;
     transition: 500ms;
+  }
+  img {
+    background-color: grey;
   }
   &:hover p,
   &:hover button {
@@ -40,18 +43,14 @@ export default function Card(props) {
   return (
     <>
       <StyledBox space={"--s-2"}>
-        <Frame>
+        <Frame onClick={handleChange}>
           <img src={`${props.url}`} alt="Picture of a paper cup" />
         </Frame>
-        <Cluster>
-          <Box>
+        <Stack>
+          <Box space={"--s-2"}>
             <p>{`${props.name}`}</p>
-            <br />
-            <button value="false" onClick={handleChange}>
-              Find out more
-            </button>
           </Box>
-        </Cluster>
+        </Stack>
       </StyledBox>
     </>
   );
