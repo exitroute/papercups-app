@@ -3,7 +3,7 @@ import React from "react";
 export default function PurchaseSuccess(props) {
   const close = (e) => {
     props.openModal(e.target.value);
-    props.clearState();
+    props.resetPurchaseWizard();
   };
 
   return (

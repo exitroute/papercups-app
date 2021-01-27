@@ -12,7 +12,7 @@ export default function UserDetails(props) {
 
   const close = (e) => {
     props.openModal(e.target.value);
-    props.clearState();
+    props.resetPurchaseWizard();
   };
 
   return (

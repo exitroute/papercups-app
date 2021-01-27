@@ -45,10 +45,11 @@ export default function PurchaseWizard(props) {
     setPaymentDetails({ ccNumber: e });
   };
 
-  const clearState = () => {
+  const resetPurchaseWizard = () => {
     setStep(1);
     setUserDetails({ name: "" });
     setPaymentDetails({ ccNumber: "" });
+    props.startPurchase();
   };
 
   const submit = (data) => {
@@ -62,7 +63,7 @@ export default function PurchaseWizard(props) {
           nextStep={nextStep}
           lastStep={lastStep}
           openModal={props.openModal}
-          clearState={clearState}
+          resetPurchaseWizard={resetPurchaseWizard}
           getUserDetails={(e) => getUserDetails(e)}
         />
       );
@@ -72,7 +73,7 @@ export default function PurchaseWizard(props) {
           nextStep={nextStep}
           lastStep={lastStep}
           openModal={props.openModal}
-          clearState={clearState}
+          resetPurchaseWizard={resetPurchaseWizard}
           getPaymentDetails={(e) => getPaymentDetails(e)}
         />
       );
@@ -82,7 +83,7 @@ export default function PurchaseWizard(props) {
           nextStep={nextStep}
           lastStep={lastStep}
           openModal={props.openModal}
-          clearState={clearState}
+          resetPurchaseWizard={resetPurchaseWizard}
           paymentDetails={paymentDetails}
           userDetails={userDetails}
           itemData={props.itemData}
@@ -90,7 +91,10 @@ export default function PurchaseWizard(props) {
       );
     case 4:
       return (
-        <PurchaseSuccess clearState={clearState} openModal={props.openModal} />
+        <PurchaseSuccess
+          resetPurchaseWizard={resetPurchaseWizard}
+          openModal={props.openModal}
+        />
       );
   }
 }

@@ -16,7 +16,7 @@ export default function PaymentDetails(props) {
 
   const close = (e) => {
     props.openModal(e.target.value);
-    props.clearState();
+    props.resetPurchaseWizard();
   };
 
   return (
