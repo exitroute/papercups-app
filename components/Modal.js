@@ -1,8 +1,16 @@
 import React, { useState } from "react";
+import { createGlobalStyle } from "styled-components";
 import Layout from "./Layout";
 import styled from "styled-components";
 import PictureDetails from "./PictureDetails";
 import PurchaseWizard from "./PurchaseWizard";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    height: ${(props) => (props.showModal ? "100%" : "100vh")};
+    overflow-y: ${(props) => (props.modalIsOpen ? initial : "hidden")};
+  }
+`;
 
 const Container = styled.div`
   background: rgba(0, 0, 0, 0.8);
@@ -52,11 +60,14 @@ const Modal = (props) => {
   return (
     <>
       {props.showModal ? (
-        <Container>
-          <Imposter>
-            <Layout>{modalContent}</Layout>
-          </Imposter>
-        </Container>
+        <>
+          <GlobalStyle showModal={props.showModal} />
+          <Container>
+            <Imposter>
+              <Layout>{modalContent}</Layout>
+            </Imposter>
+          </Container>
+        </>
       ) : null}
     </>
   );
