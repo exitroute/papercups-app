@@ -27,6 +27,7 @@ const Imposter = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: auto;
   max-width: calc(100% - 2rem);
   max-height: calc(100% - 2rem);
   z-index: 101;
