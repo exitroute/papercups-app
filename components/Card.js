@@ -1,25 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import Modal from "./Modal";
 import { Box, Stack, Frame } from "./EveryLayout";
 
 const StyledBox = styled(Box)`
   p {
     text-align: center;
-  }
-  p,
-  button {
     visibility: hidden;
     opacity: 0;
     transition: 500ms;
   }
-  img {
-    background-color: grey;
-  }
-  &:hover p,
-  &:hover button {
+  &:hover p {
     visibility: visible;
     opacity: 1;
+  }
+  img {
+    background-color: grey;
   }
   & > div:first-child {
     border: var(--border-thick-light);
