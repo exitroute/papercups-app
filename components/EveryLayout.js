@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const Stack = styled.div`
   --space: ${(props) => props.space || "1.5rem"};
@@ -91,8 +91,8 @@ export const Cluster = styled.div`
 
 export const Frame = styled.div`
   display: block;
-  --n: 9; /* width */
-  --d: 16; /* height */
+  --n: 1; /* width */
+  --d: 1.42; /* height */
   padding-bottom: calc(var(--n) / var(--d) * 100%);
   position: relative;
 
