@@ -53,11 +53,11 @@ function Index({ data }) {
 }
 
 export async function getStaticProps() {
-  try {
-    const secretKey = process.env.UPLOADCARE_SECRET_KEY;
-    const publicKey = process.env.UPLOADCARE_PUBLIC_KEY;
-    const url = process.env.API_URL;
+  const secretKey = process.env.UPLOADCARE_SECRET_KEY;
+  const publicKey = process.env.UPLOADCARE_PUBLIC_KEY;
+  const url = process.env.API_URL;
 
+  try {
     const res = await fetch(url, {
       method: "GET",
       headers: {
